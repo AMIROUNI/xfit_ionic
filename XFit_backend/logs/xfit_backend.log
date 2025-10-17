@@ -975,3 +975,4 @@ Caused by: java.lang.ClassNotFoundException: com.symptomcheck.xfit_backend.model
 2025-10-17T13:08:31.790+02:00  INFO 12416 --- [XFit_backend] [http-nio-8090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-10-17T13:08:31.790+02:00  INFO 12416 --- [XFit_backend] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-10-17T13:08:31.792+02:00  INFO 12416 --- [XFit_backend] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-10-17T17:59:23.180+02:00  WARN 12416 --- [XFit_backend] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h22m44s16ms883µs200ns).
