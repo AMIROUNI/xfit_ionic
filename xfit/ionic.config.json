@@ -1,0 +1,7 @@
+{
+  "name": "xfit",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

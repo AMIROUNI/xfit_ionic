@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [routerLink]="['/main', uid]"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-grid class="profile-container">
+    <ion-row class="ion-justify-content-center ion-align-items-center">
+      <ion-col size="12" size-md="6" size-lg="4">
+        <ion-card class="profile-card ion-text-center">
+          <!-- Profile Image -->
+          <ion-avatar class="profile-avatar">
+            <img [src]="userData?.image || 'assets/image/default-avatar.jpg'" alt="Profile Image">
+          </ion-avatar>
+
+          <ion-card-header>
+            <ion-card-title>{{ userData?.fullname }}</ion-card-title>
+            <ion-card-subtitle>{{ userData?.email }}</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-item lines="none">
+              <ion-label><strong>Age:</strong></ion-label>
+              <ion-note slot="end">{{ userData?.age }}</ion-note>
+            </ion-item>
+
+            
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Signup</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-img src="assets/image/logo.png" alt="App Logo" class="app-logo"></ion-img>
+
+
+<ion-content class="ion-padding" style="margin-top: 5em;">
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <!-- Full name -->
+    <ion-item>
+      <ion-label position="stacked">Full Name</ion-label>
+      <ion-input formControlName="fullname" placeholder="Enter your full name"></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="isInvalidOrTouchedAndDirty(fullnameControl)">
+      Full name is required.
+    </ion-text>
+
+    <!-- Age -->
+    <ion-item>
+      <ion-label position="stacked">Age</ion-label>
+      <ion-input type="number" formControlName="age" placeholder="Enter your age"></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="isInvalidOrTouchedAndDirty(ageControl)">
+      Age is required.
+    </ion-text>
+
+    <!-- Email -->
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input type="email" formControlName="email" placeholder="Enter your email"></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="isInvalidOrTouchedAndDirty(emailControl)">
+      Please enter a valid email address.
+    </ion-text>
+
+    <!-- Password -->
+    <ion-item>
+      <ion-label position="stacked">Password</ion-label>
+      <ion-input type="password" formControlName="password" placeholder="Enter your password"></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="isInvalidOrTouchedAndDirty(passwordControl)">
+      Password must be at least 6 characters long.
+    </ion-text>
+
+    <!-- Profile Image Section -->
+    <ion-item lines="none">
+      <ion-label position="stacked">Profile Image</ion-label>
+    </ion-item>
+
+    <!-- Image Preview + Remove Button -->
+    <div class="image-preview" *ngIf="imageControl?.value">
+      <ion-img [src]="imageControl?.value" alt="Selected Image" class="preview-img"></ion-img>
+
+      <!-- Remove Image Button -->
+      <ion-button
+        fill="clear"
+        size="small"
+        class="remove-image-btn"
+        (click)="clearImage()"
+      >
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </div>
+
+    <!-- Choose Photo Button -->
+    <ion-button expand="block" (click)="openActionSheet()">
+      Choose Photo
+    </ion-button>
+
+    <!-- Action Sheet -->
+    <ion-action-sheet
+      [isOpen]="showActionSheet"
+      header="Select Image Source"
+      (didDismiss)="showActionSheet = false"
+      [buttons]="buttons">
+    </ion-action-sheet>
+
+    <br />
+
+    <!-- Submit Button -->
+    <ion-button expand="block" type="submit">
+      Create Account
+    </ion-button>
+  </form>
+</ion-content>

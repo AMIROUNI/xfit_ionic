@@ -1,0 +1,110 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Fitness Programs</ion-title>
+  </ion-toolbar>
+
+  <!-- Tabs Bar Fixed at the Top -->
+  <ion-tab-bar slot="top" class="custom-tab-bar">
+    <ion-tab-button>
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Home</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button>
+      <ion-icon name="barbell" color="primary"></ion-icon>
+      <ion-label>Workouts</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button>
+      <ion-icon name="stats-chart"></ion-icon>
+      <ion-label>Progress</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button>
+      <ion-icon name="person"></ion-icon>
+      <ion-label [routerLink]="['/profile', uid]">Profile</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-header>
+
+<!-- Main Content -->
+<ion-content [fullscreen]="true">
+
+  <!-- HOME TAB -->
+  <ion-grid class="logo-container">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="auto">
+        <ion-img src="assets/image/logo.png" alt="App Logo" class="app-logo"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+   <ion-grid class="logo-container">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="auto">
+        <ion-searchbar #searchBar (change)="onSearchChange(searchBar.value ?? '')" placeholder="Search Programs"></ion-searchbar>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid class="quote-section">
+    <ion-row>
+      <ion-col size="12" size-md="8" offset-md="2" size-lg="6" offset-lg="3">
+        <ion-card class="quote-card">
+          <div class="quote-icon">💪</div>
+          <ion-card-header>
+            <ion-card-subtitle>Daily Motivation for {{ username }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ng-container *ngIf="motivationalQuote?.content; else loadingQuote">
+              <p class="quote-text">"{{ motivationalQuote.content }}"</p>
+              <p class="quote-author">— {{ motivationalQuote.author }}</p>
+            </ng-container>
+            <ng-template #loadingQuote>
+              <ion-skeleton-text [animated]="true" style="width: 100%; height: 60px;"></ion-skeleton-text>
+            </ng-template>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid class="programs-section">
+    <ion-row class="section-header">
+      <ion-col size="8">
+        <h2>Your Programs</h2>
+      </ion-col>
+      <ion-col size="4" class="ion-text-end">
+        <ion-badge color="primary">{{ programs.length }}</ion-badge>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="programs-grid">
+      @for(p of filteredPrograms; track $index) {
+        <ion-col size="12" size-sm="6" size-md="4" size-lg="3">
+          <ion-card class="program-card" button>
+            <div class="card-image-wrapper">
+              <ion-img [src]="p.image" [alt]="p.title"></ion-img>
+              <div class="duration-badge">
+                <ion-icon name="calendar-outline"></ion-icon>
+                {{ p.durationInDays }} days
+              </div>
+            </div>
+            <ion-card-header>
+              <ion-card-title>{{ p.title }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <div class="card-footer">
+                <ion-button fill="solid" size="small" (click)="startProgram(p.id)">
+                  Start Program
+                  <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+                </ion-button>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      }
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

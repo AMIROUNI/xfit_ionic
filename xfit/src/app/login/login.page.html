@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-img src="assets/image/logo.png" alt="App Logo" class="app-logo"></ion-img>
+
+
+<ion-content class="ion-padding">
+  <div class="form">
+    <!-- Email -->
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input type="email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <!-- Password -->
+    <ion-item>
+      <ion-label position="stacked">Password</ion-label>
+      <ion-input type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+
+    <br />
+
+    <!-- Login Button -->
+    <ion-button expand="block" (click)="login()">Login</ion-button>
+
+    <br />
+
+    <!-- Signup Redirect -->
+    <h5 (click)="signup()" style="text-align:center;">
+      Don’t have an account?
+      <ion-text color="primary">Signup here</ion-text>
+    </h5>
+  </div>
+</ion-content>

@@ -1,0 +1,506 @@
+/* Login Page Styling - Light Mode (Default) */
+ion-content {
+  --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Logo Styling */
+.app-logo {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  display: block;
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  background: white;
+  padding: 10px;
+  border: 3px solid white;
+  transition: all 0.3s ease;
+}
+
+.app-logo:hover {
+  transform: translateX(-50%) scale(1.05);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Container */
+.form {
+  width: 90%;
+  max-width: 400px;
+  background: white;
+  border-radius: 20px;
+  padding: 40px 30px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  margin: 120px auto 20px;
+  position: relative;
+  z-index: 100;
+}
+
+/* Header Styling */
+ion-toolbar {
+  --background: transparent;
+  --color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+ion-title {
+  font-weight: 600;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+/* Form Items Styling */
+ion-item {
+  --background: #f8f9fa;
+  --border-radius: 12px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --inner-padding-end: 0;
+  margin-bottom: 25px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  cursor: text;
+}
+
+ion-item.item-has-focus {
+  --background: #ffffff;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Label Styling */
+ion-label {
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+}
+
+/* Input Styling */
+ion-input {
+  --padding-start: 0;
+  --padding-end: 0;
+  font-size: 1rem;
+  color: #2d3748;
+  --placeholder-color: #a0aec0;
+  --placeholder-opacity: 1;
+  cursor: text;
+}
+
+ion-input .native-input {
+  cursor: text !important;
+}
+
+/* Button Styling */
+ion-button {
+  --border-radius: 12px;
+  --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+  margin: 20px 0 10px 0;
+  height: 50px;
+  font-weight: 600;
+  text-transform: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --background-hover: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+  --background-activated: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+  --color: white;
+}
+
+ion-button:hover {
+  transform: translateY(-2px);
+  --box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+ion-button:active {
+  transform: translateY(0);
+}
+
+/* Signup Link Styling */
+h5 {
+  color: #4a5568;
+  font-weight: 500;
+  font-size: 1rem;
+  margin: 20px 0 0 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  line-height: 1.5;
+}
+
+h5:hover {
+  color: #2d3748;
+  transform: translateY(-1px);
+}
+
+ion-text[color="primary"] {
+  color: #667eea !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+h5:hover ion-text[color="primary"] {
+  color: #5a6fd8 !important;
+  text-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+}
+
+/* ========================================================================== */
+/* DARK MODE STYLING */
+/* ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  ion-content {
+    --background: linear-gradient(135deg, #1e1b2e 0%, #2d1b3e 100%);
+  }
+
+  .app-logo {
+    background: #2d3748;
+    border: 3px solid #4a5568;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  }
+
+  .form {
+    background: #1a1a1a;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    border: 1px solid #333;
+  }
+
+  /* Dark Mode Header */
+  ion-toolbar {
+    --background: transparent;
+    --color: #e2e8f0;
+  }
+
+  /* Dark Mode Form Items */
+  ion-item {
+    --background: #2d2d2d;
+    border: 2px solid #404040;
+  }
+
+  ion-item.item-has-focus {
+    --background: #363636;
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+  }
+
+  /* Dark Mode Labels */
+  ion-label {
+    color: #e2e8f0 !important;
+  }
+
+  /* Dark Mode Inputs */
+  ion-input {
+    color: #f7fafc;
+    --placeholder-color: #a0aec0;
+  }
+
+  /* Dark Mode Button */
+  ion-button {
+    --background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    --background-hover: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+    --background-activated: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+  }
+
+  ion-button:hover {
+    --box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+  }
+
+  /* Dark Mode Signup Link */
+  h5 {
+    color: #cbd5e0;
+  }
+
+  h5:hover {
+    color: #e2e8f0;
+  }
+
+  ion-text[color="primary"] {
+    color: #8b5cf6 !important;
+  }
+
+  h5:hover ion-text[color="primary"] {
+    color: #7c3aed !important;
+    text-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+  }
+}
+
+/* Manual Dark Mode Class */
+.ion-palette-dark,
+[data-theme="dark"] {
+  ion-content {
+    --background: linear-gradient(135deg, #1e1b2e 0%, #2d1b3e 100%) !important;
+  }
+
+  .app-logo {
+    background: #2d3748 !important;
+    border: 3px solid #4a5568 !important;
+  }
+
+  .form {
+    background: #1a1a1a !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid #333 !important;
+  }
+
+  ion-item {
+    --background: #2d2d2d !important;
+    border: 2px solid #404040 !important;
+  }
+
+  ion-item.item-has-focus {
+    --background: #363636 !important;
+    border-color: #8b5cf6 !important;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2) !important;
+  }
+
+  ion-label {
+    color: #e2e8f0 !important;
+  }
+
+  ion-input {
+    color: #f7fafc !important;
+  }
+
+  ion-button {
+    --background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%) !important;
+  }
+
+  h5 {
+    color: #cbd5e0 !important;
+  }
+
+  ion-text[color="primary"] {
+    color: #8b5cf6 !important;
+  }
+}
+
+/* Enhanced Responsive Design */
+/* Mobile Phones (Small screens) */
+@media (max-width: 480px) {
+  .app-logo {
+    width: 100px;
+    height: 100px;
+    top: 70px;
+    border-radius: 15px;
+  }
+
+  .form {
+    width: 95%;
+    margin: 100px auto 20px;
+    padding: 30px 20px;
+    border-radius: 16px;
+  }
+  
+  ion-item {
+    margin-bottom: 20px;
+  }
+  
+  ion-label {
+    font-size: 0.9rem;
+  }
+  
+  ion-button {
+    height: 48px;
+    font-size: 1rem;
+    margin: 15px 0 8px 0;
+  }
+  
+  h5 {
+    font-size: 0.9rem;
+  }
+}
+
+/* Tablets and Medium Screens */
+@media (min-width: 481px) and (max-width: 768px) {
+  .app-logo {
+    width: 130px;
+    height: 130px;
+    top: 90px;
+  }
+
+  .form {
+    max-width: 420px;
+    padding: 40px 35px;
+    margin: 140px auto 30px;
+  }
+}
+
+/* Large Screens and Desktops */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .form {
+    max-width: 400px;
+    margin: 150px auto 40px;
+  }
+}
+
+/* Extra Large Screens */
+@media (min-width: 1025px) {
+  .app-logo {
+    width: 140px;
+    height: 140px;
+    top: 100px;
+  }
+
+  .form {
+    max-width: 420px;
+    margin: 160px auto 60px;
+    padding: 45px 35px;
+  }
+}
+
+/* Landscape Orientation for Mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+  .app-logo {
+    width: 80px;
+    height: 80px;
+    top: 60px;
+  }
+
+  .form {
+    margin: 80px auto 15px;
+    padding: 25px 20px;
+  }
+  
+  ion-item {
+    margin-bottom: 15px;
+  }
+  
+  ion-button {
+    height: 44px;
+    margin: 10px 0 5px 0;
+  }
+  
+  h5 {
+    margin: 15px 0 0 0;
+    font-size: 0.9rem;
+  }
+}
+
+/* Custom Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+ion-item {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+ion-item:nth-child(1) { animation-delay: 0.1s; }
+ion-item:nth-child(2) { animation-delay: 0.2s; }
+ion-button { animation-delay: 0.3s; }
+h5 { animation-delay: 0.4s; }
+
+/* Focus States for Accessibility */
+ion-input:focus-within {
+  --highlight-color-focused: #667eea;
+}
+
+.ion-palette-dark ion-input:focus-within,
+[data-theme="dark"] ion-input:focus-within {
+  --highlight-color-focused: #8b5cf6;
+}
+
+/* Custom Scrollbar */
+ion-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+ion-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+ion-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.ion-palette-dark ion-content::-webkit-scrollbar-thumb,
+[data-theme="dark"] ion-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Loading State */
+ion-button:disabled {
+  --background: #cbd5e0;
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* High Contrast Support */
+@media (prefers-contrast: high) {
+  ion-label {
+    color: #000000 !important;
+    font-weight: 700;
+  }
+  
+  ion-item {
+    border: 2px solid #000000;
+  }
+  
+  ion-item.item-has-focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.4);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    ion-label {
+      color: #ffffff !important;
+    }
+    
+    ion-item {
+      border: 2px solid #ffffff;
+    }
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .app-logo,
+  ion-item,
+  ion-button,
+  h5,
+  .form {
+    animation: none;
+    transition: none;
+    transform: none !important;
+  }
+}
+
+/* Smooth transitions for theme switching */
+ion-content,
+.form,
+ion-item,
+ion-label,
+ion-input,
+ion-button,
+.app-logo,
+h5 {
+  transition: all 0.3s ease;
+}   

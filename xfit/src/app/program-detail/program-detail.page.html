@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/main"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Program Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Program Details</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Program Header -->
+  <div class="program-header">
+    <div class="header-content">
+      
+        <div class="stat-item">
+          <ion-icon name="fitness-outline"></ion-icon>
+          <span>{{ programDetails.length }} Exercises</span>
+        </div>
+      </div>
+    </div>
+
+  <!-- Exercises List -->
+  <div class="exercises-container">
+    @for (pd of programDetails; track $index) {
+      <ion-card class="exercise-card">
+        <div class="day-badge">
+          <ion-icon name="calendar"></ion-icon>
+          Day {{ pd.day }}
+        </div>
+        
+        <ion-card-header>
+          <div class="exercise-number">{{ $index + 1 }}</div>
+          <ion-card-title>{{ pd.exerciseName }}</ion-card-title>
+        </ion-card-header>
+        
+        <ion-card-content>
+          <p class="description">{{ pd.description }}</p>
+          
+          <div class="exercise-actions">
+            <ion-button fill="outline" size="small">
+              <ion-icon slot="start" name="play-circle-outline"></ion-icon>
+              Start
+            </ion-button>
+            <ion-button fill="clear" size="small">
+              <ion-icon slot="icon-only" name="information-circle-outline"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    }
+
+    @if(programDetails.length === 0) {
+      <div class="empty-state">
+        <ion-icon name="barbell-outline"></ion-icon>
+        <h3>No Exercises Found</h3>
+        <p>This program doesn't have any exercises yet.</p>
+      </div>
+    }
+  </div>
+
+</ion-content>
