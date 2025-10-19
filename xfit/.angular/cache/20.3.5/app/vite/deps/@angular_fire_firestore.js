@@ -117,54 +117,56 @@ import {
   waitForPendingWrites,
   where,
   writeBatch
-} from "./chunk-UOHZSUIT.js";
+} from "./chunk-64FB3VI5.js";
 import {
   AuthInstances
-} from "./chunk-SNRNQOSX.js";
+} from "./chunk-YZZJK6GJ.js";
 import {
   AppCheckInstances
-} from "./chunk-VUJFHLT3.js";
-import "./chunk-3UKLLH3H.js";
+} from "./chunk-PC6YYOHT.js";
+import "./chunk-FBH7K3HX.js";
+import "./chunk-CUYOFUKP.js";
 import {
   FirebaseApp,
   FirebaseApps
-} from "./chunk-QWRQXP5C.js";
-import "./chunk-B3YD4OP6.js";
-import "./chunk-W2WIUP6R.js";
+} from "./chunk-AH5S2POA.js";
+import "./chunk-EPQ7ABNA.js";
 import {
   VERSION,
   ɵAngularFireSchedulers,
   ɵgetAllInstancesOf,
   ɵgetDefaultInstanceOf,
   ɵzoneWrap
-} from "./chunk-Q3BCPBC6.js";
+} from "./chunk-KC6TPQOL.js";
 import {
   registerVersion
-} from "./chunk-KUSH5E6A.js";
+} from "./chunk-J2VAM4YE.js";
 import {
   InjectionToken,
   Injector,
   NgModule,
   NgZone,
-  Observable,
   Optional,
+  makeEnvironmentProviders,
+  setClassMetadata,
+  ɵɵdefineInjector,
+  ɵɵdefineNgModule
+} from "./chunk-BGREEXQX.js";
+import {
+  Observable,
   concatMap,
   distinct,
   distinctUntilChanged,
   filter,
   from,
-  makeEnvironmentProviders,
   map,
   pairwise,
   pipe,
   scan,
-  setClassMetadata,
   startWith,
-  timer,
-  ɵɵdefineInjector,
-  ɵɵdefineNgModule
-} from "./chunk-U4JGDI26.js";
-import "./chunk-BBC5QSU6.js";
+  timer
+} from "./chunk-P5FG5K2C.js";
+import "./chunk-TQENF7IN.js";
 import "./chunk-4VWZEZJW.js";
 
 // node_modules/rxfire/firestore/index.esm.js

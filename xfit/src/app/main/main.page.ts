@@ -13,7 +13,7 @@ import { Fireservice } from '../services/fireservice';
   templateUrl: './main.page.html',
   styleUrls: ['./main.page.scss'],
   standalone: true,
-  imports: [IonSearchbar, IonTabBar, IonTabButton, IonBadge, IonIcon, IonButton, IonSkeletonText, IonCol, IonRow, IonGrid, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonImg, IonCard, IonItem, IonLabel, IonList, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonRouterLink, RouterLinkWithHref]
+  imports: [IonSearchbar, IonTabBar, IonTabButton, IonBadge, IonIcon, IonButton, IonSkeletonText, IonCol, IonRow, IonGrid, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonImg, IonCard, IonLabel, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonRouterLink, RouterLinkWithHref]
 })
 export class MainPage implements OnInit {
   programs: Program[] = [];
@@ -22,7 +22,7 @@ export class MainPage implements OnInit {
   uid: string = '';
   username: string = '';
   constructor(private programService: ProgramService,
-     private motivationService: Motivation, 
+     private motivationService: Motivation,
     private route: ActivatedRoute,
      private router: Router
     ,private fireservice:Fireservice) { }
@@ -102,6 +102,15 @@ onSearchChange(searchValue: string) {
     if (id !== undefined) {
       this.router.navigate(['/program-detail', id]);
    }
+  }
+
+
+
+
+   navigateToCalorieCalculator() {
+    this.router.navigate(['/calorie-calculator'], {
+      state: { uid: this.uid }
+    });
   }
 }
 

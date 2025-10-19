@@ -12,8 +12,8 @@ import {
   provideFirebaseApp,
   registerVersion,
   setLogLevel
-} from "./chunk-QWRQXP5C.js";
-import "./chunk-Q3BCPBC6.js";
+} from "./chunk-AH5S2POA.js";
+import "./chunk-KC6TPQOL.js";
 import {
   DEFAULT_ENTRY_NAME,
   FirebaseError,
@@ -29,9 +29,10 @@ import {
   _registerComponent,
   _removeServiceInstance,
   _serverApps
-} from "./chunk-KUSH5E6A.js";
-import "./chunk-U4JGDI26.js";
-import "./chunk-BBC5QSU6.js";
+} from "./chunk-J2VAM4YE.js";
+import "./chunk-BGREEXQX.js";
+import "./chunk-P5FG5K2C.js";
+import "./chunk-TQENF7IN.js";
 import "./chunk-4VWZEZJW.js";
 export {
   FirebaseApp,

@@ -30,5 +30,9 @@ export const routes: Routes = [
   {
     path: 'profile/:uid',
     loadComponent: () => import('./profile/profile.page').then( m => m.ProfilePage)
+  },  {
+    path: 'calorie-calculator',
+    loadComponent: () => import('./calorie-calculator/calorie-calculator.page').then( m => m.CalorieCalculatorPage)
   },
+
 ];
