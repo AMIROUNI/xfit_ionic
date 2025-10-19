@@ -1,0 +1,120 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="'/main/' + uid"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Calorie Calculator</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="ion-padding">
+
+    <!-- Calculator Form Card -->
+    <form [formGroup]="calorieForm" (ngSubmit)="calculateCalories()">
+
+      <!-- Gender -->
+      <ion-item lines="none">
+        <ion-label position="stacked">Gender</ion-label>
+        <ion-select formControlName="gender" interface="popover" placeholder="Select Gender">
+          @for (g of genders; track g) {
+            <ion-select-option [value]="g">{{ g | titlecase }}</ion-select-option>
+          }
+        </ion-select>
+      </ion-item>
+
+      <!-- Age -->
+      <ion-item lines="none">
+        <ion-label position="stacked">Age</ion-label>
+        <ion-input
+          type="number"
+          formControlName="age"
+          placeholder="Enter your age"
+          inputmode="numeric">
+        </ion-input>
+      </ion-item>
+
+      <!-- Height -->
+      <ion-item lines="none">
+        <ion-label position="stacked">Height (cm)</ion-label>
+        <ion-input
+          type="number"
+          formControlName="heightCm"
+          placeholder="Enter your height"
+          inputmode="decimal">
+        </ion-input>
+      </ion-item>
+
+      <!-- Weight -->
+      <ion-item lines="none">
+        <ion-label position="stacked">Weight (kg)</ion-label>
+        <ion-input
+          type="number"
+          formControlName="weightKg"
+          placeholder="Enter your weight"
+          inputmode="decimal">
+        </ion-input>
+      </ion-item>
+
+      <!-- Activity Level -->
+      <ion-item lines="none">
+        <ion-label position="stacked">Activity Level</ion-label>
+        <ion-select formControlName="activityLevel" interface="popover" placeholder="Select Activity Level">
+          @for (level of activityLevels; track level.value) {
+            <ion-select-option [value]="level.value">{{ level.label }}</ion-select-option>
+          }
+        </ion-select>
+      </ion-item>
+
+      <!-- Goal -->
+      <ion-item lines="none">
+        <ion-label position="stacked">Goal</ion-label>
+        <ion-select formControlName="goal" interface="popover" placeholder="Select Goal">
+          @for (g of goals; track g) {
+            <ion-select-option [value]="g">{{ g | titlecase }}</ion-select-option>
+          }
+        </ion-select>
+      </ion-item>
+
+      <!-- Submit Button -->
+      <ion-button
+        expand="block"
+        type="submit"
+        [disabled]="loading || calorieForm.invalid">
+        @if (loading) {
+          <ion-spinner name="crescent" slot="start"></ion-spinner>
+          Calculating...
+        } @else {
+          Calculate Calories
+          <ion-icon slot="end" name="calculator-outline"></ion-icon>
+        }
+      </ion-button>
+
+    </form>
+
+    <!-- Result Card -->
+    @if (caloriesNeeded) {
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Daily Calories Needed</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p class="ion-text-center" style="font-size: 2rem; font-weight: bold; margin: 0;">
+            {{ caloriesNeeded | number:'1.0-0' }} <span style="font-size: 1.2rem;">kcal/day</span>
+          </p>
+        </ion-card-content>
+      </ion-card>
+    }
+
+    <!-- Error Message -->
+    @if (errorMsg) {
+      <ion-text color="danger">
+        <p class="ion-text-center">
+          <ion-icon name="alert-circle-outline" style="vertical-align: middle; margin-right: 8px;"></ion-icon>
+          {{ errorMsg }}
+        </p>
+      </ion-text>
+    }
+
+  </div>
+</ion-content>

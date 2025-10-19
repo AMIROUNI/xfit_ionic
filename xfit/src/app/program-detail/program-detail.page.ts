@@ -11,7 +11,7 @@ import { ProgramDetail } from '../models/ProgramDetail.model';
   templateUrl: './program-detail.page.html',
   styleUrls: ['./program-detail.page.scss'],
   standalone: true,
-  imports: [IonBackButton, IonButtons, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonIcon, IonItem, IonLabel, IonList, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonBackButton, IonButtons, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonIcon, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
 })
 export class ProgramDetailPage implements OnInit {
 
