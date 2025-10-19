@@ -2,7 +2,7 @@ import {
   bootstrapLazy,
   promiseResolve,
   setNonce
-} from "./chunk-TFBJ6356.js";
+} from "./chunk-HUUXCZVT.js";
 import "./chunk-4VWZEZJW.js";
 
 // node_modules/@ionic/pwa-elements/dist/esm/polyfills/index.js
@@ -13,7 +13,7 @@ function applyPolyfills() {
     if (!win.customElements || win.Element && (!win.Element.prototype.closest || !win.Element.prototype.matches || !win.Element.prototype.remove || !win.Element.prototype.getRootNode)) {
       promises.push(import(
         /* webpackChunkName: "polyfills-dom" */
-        "./dom-ZXRIFBEG.js"
+        "./dom-Z3O4YYX7.js"
       ));
     }
     var checkIfURLIsSupported = function() {
@@ -28,7 +28,7 @@ function applyPolyfills() {
     if ("function" !== typeof Object.assign || !Object.entries || !Array.prototype.find || !Array.prototype.includes || !String.prototype.startsWith || !String.prototype.endsWith || win.NodeList && !win.NodeList.prototype.forEach || !win.fetch || !checkIfURLIsSupported() || typeof WeakMap == "undefined") {
       promises.push(import(
         /* webpackChunkName: "polyfills-core-js" */
-        "./core-js-H5MSFUN5.js"
+        "./core-js-GZVOUK7F.js"
       ));
     }
   }

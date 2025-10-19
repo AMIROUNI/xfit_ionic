@@ -1,27 +1,432 @@
-#container {
+/* Home Page Styling - Light Mode (Default) */
+ion-content.home-content {
+  --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Logo Container */
+.logo-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 2cm;
+  margin-bottom: 60px;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.logo {
+  width: 180px;
+  height: 180px;
+  border-radius: 30px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  background: white;
+  padding: 15px;
+  border: 4px solid white;
+  transition: all 0.4s ease;
+}
+
+.logo:hover {
+  transform: scale(1.08) rotate(2deg);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* Button Container */
+.button-container {
+  width: 50%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
+/* Button Styling */
+.button-container ion-button {
+  --border-radius: 14px;
+  --box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  height: 56px;
+  font-weight: 600;
+  text-transform: none;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.button-container ion-button[color="primary"] {
+  --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --background-hover: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+  --background-activated: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+  --color: white;
+}
+
+.button-container ion-button[color="light"] {
+  --background: white;
+  --background-hover: #f8f9fa;
+  --background-activated: #f0f1f3;
+  --color: #667eea;
+  font-weight: 700;
+}
+
+.button-container ion-button:hover {
+  transform: translateY(-3px);
+  --box-shadow: 0 10px 30px rgba(102, 126, 234, 0.35);
+}
+
+.button-container ion-button:active {
+  transform: translateY(-1px);
+}
+
+/* Weather Container */
+.weather-container {
+  width: 66.66%;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
   text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  animation: fadeInUp 0.8s ease-out 0.4s backwards;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.weather-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+.weather-container ion-icon {
+  color: #667eea;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 4px 8px rgba(102, 126, 234, 0.3));
+  animation: float 3s ease-in-out infinite;
 }
 
-#container a {
-  text-decoration: none;
+.weather-container h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 15px 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.weather-container p {
+  font-size: 1.1rem;
+  color: #4a5568;
+  margin: 10px 0 0 0;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* ========================================================================== */
+/* DARK MODE STYLING */
+/* ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  ion-content.home-content {
+    --background: linear-gradient(135deg, #1e1b2e 0%, #2d1b3e 100%);
+  }
+
+  .logo {
+    background: #2d3748;
+    border: 4px solid #4a5568;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+  }
+
+  .button-container ion-button[color="primary"] {
+    --background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    --background-hover: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+    --background-activated: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+  }
+
+  .button-container ion-button[color="light"] {
+    --background: #2d2d2d;
+    --background-hover: #363636;
+    --background-activated: #404040;
+    --color: #8b5cf6;
+    border: 2px solid #404040;
+  }
+
+  .button-container ion-button:hover {
+    --box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+  }
+
+  .weather-container {
+    background: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(10px);
+    border: 2px solid #404040;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .weather-container ion-icon {
+    color: #8b5cf6;
+    filter: drop-shadow(0 4px 8px rgba(139, 92, 246, 0.4));
+  }
+
+  .weather-container h2 {
+    color: #e2e8f0;
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .weather-container p {
+    color: #cbd5e0;
+  }
+}
+
+/* Manual Dark Mode Class */
+.ion-palette-dark,
+[data-theme="dark"] {
+  ion-content.home-content {
+    --background: linear-gradient(135deg, #1e1b2e 0%, #2d1b3e 100%) !important;
+  }
+
+  .logo {
+    background: #2d3748 !important;
+    border: 4px solid #4a5568 !important;
+  }
+
+  .button-container ion-button[color="primary"] {
+    --background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%) !important;
+  }
+
+  .button-container ion-button[color="light"] {
+    --background: #2d2d2d !important;
+    --color: #8b5cf6 !important;
+  }
+
+  .weather-container {
+    background: rgba(26, 26, 26, 0.95) !important;
+    border: 2px solid #404040 !important;
+  }
+
+  .weather-container ion-icon {
+    color: #8b5cf6 !important;
+  }
+
+  .weather-container h2 {
+    color: #e2e8f0 !important;
+  }
+
+  .weather-container p {
+    color: #cbd5e0 !important;
+  }
+}
+
+/* ========================================================================== */
+/* RESPONSIVE DESIGN */
+/* ========================================================================== */
+
+/* Mobile Phones (Small screens) */
+@media (max-width: 480px) {
+  ion-content.home-content {
+    padding: 15px;
+  }
+
+  .logo-container {
+    margin-bottom: 40px;
+  }
+
+  .logo {
+    width: 140px;
+    height: 140px;
+    border-radius: 25px;
+    padding: 12px;
+  }
+
+  .button-container {
+    max-width: 100%;
+    gap: 12px;
+    margin-bottom: 30px;
+  }
+
+  .button-container ion-button {
+    height: 52px;
+    font-size: 1rem;
+  }
+
+  .weather-container {
+    max-width: 100%;
+    padding: 25px 20px;
+  }
+
+  .weather-container h2 {
+    font-size: 2rem;
+  }
+
+  .weather-container p {
+    font-size: 1rem;
+  }
+}
+
+/* Tablets and Medium Screens */
+@media (min-width: 481px) and (max-width: 768px) {
+  .logo {
+    width: 200px;
+    height: 200px;
+  }
+
+  .button-container {
+    max-width: 420px;
+  }
+
+  .weather-container {
+    max-width: 420px;
+    padding: 35px;
+  }
+}
+
+/* Large Screens and Desktops */
+@media (min-width: 769px) {
+  .logo {
+    width: 200px;
+    height: 200px;
+  }
+
+  .button-container {
+    max-width: 450px;
+  }
+
+  .weather-container {
+    max-width: 450px;
+  }
+}
+
+/* Landscape Orientation for Mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+  ion-content.home-content {
+    padding: 10px;
+    justify-content: flex-start;
+    overflow-y: auto;
+  }
+
+  .logo-container {
+    margin-bottom: 20px;
+  }
+
+  .logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+  }
+
+  .button-container {
+    margin-bottom: 20px;
+  }
+
+  .button-container ion-button {
+    height: 48px;
+  }
+
+  .weather-container {
+    padding: 20px;
+  }
+
+  .weather-container h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* ========================================================================== */
+/* ANIMATIONS */
+/* ========================================================================== */
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* ========================================================================== */
+/* ACCESSIBILITY */
+/* ========================================================================== */
+
+/* High Contrast Support */
+@media (prefers-contrast: high) {
+  .button-container ion-button[color="light"] {
+    border: 3px solid #000000;
+  }
+
+  .weather-container {
+    border: 3px solid #000000;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .button-container ion-button[color="light"] {
+      border: 3px solid #ffffff;
+    }
+
+    .weather-container {
+      border: 3px solid #ffffff;
+    }
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .logo,
+  .button-container,
+  .weather-container,
+  .logo-container,
+  .weather-container ion-icon {
+    animation: none;
+    transition: none;
+  }
+
+  .logo:hover,
+  .button-container ion-button:hover,
+  .weather-container:hover {
+    transform: none;
+  }
+}
+
+/* Smooth transitions for theme switching */
+ion-content.home-content,
+.logo,
+.button-container ion-button,
+.weather-container,
+.weather-container ion-icon,
+.weather-container h2,
+.weather-container p {
+  transition: all 0.3s ease;
 }

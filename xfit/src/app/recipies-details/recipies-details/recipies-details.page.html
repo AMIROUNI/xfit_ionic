@@ -1,0 +1,234 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/recepies"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Recipe Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  @if (isLoading) {
+    <!-- Loading State -->
+    <ion-grid class="loading-container">
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="12" size-md="10" size-lg="8">
+          <ion-card>
+            <div class="skeleton-image"></div>
+            <ion-card-header>
+              <ion-card-title>
+                <div class="skeleton-text" style="width: 80%; height: 24px;"></div>
+              </ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <div class="skeleton-text" style="width: 100%; height: 16px; margin-bottom: 8px;"></div>
+              <div class="skeleton-text" style="width: 90%; Height: 16px;"></div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  } @else if (recipe) {
+    <!-- Recipe Content -->
+    <ion-grid class="recipe-container">
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="12" size-md="10" size-lg="8">
+          
+          <!-- Recipe Image Card -->
+          <ion-card class="image-card">
+            <ion-img [src]="recipe.image" [alt]="recipe.title"></ion-img>
+            <div class="image-overlay">
+              <h1>{{ recipe.title }}</h1>
+            </div>
+          </ion-card>
+
+          <!-- Quick Info Card -->
+          <ion-card class="info-card">
+            <ion-card-content>
+              <ion-grid>
+                <ion-row class="info-row">
+                  <ion-col size="3" class="info-item">
+                    <ion-icon name="time-outline" color="primary"></ion-icon>
+                    <div class="info-value">{{ recipe.readyInMinutes }}</div>
+                    <div class="info-label">Minutes</div>
+                  </ion-col>
+                  <ion-col size="3" class="info-item">
+                    <ion-icon name="people-outline" color="primary"></ion-icon>
+                    <div class="info-value">{{ recipe.servings }}</div>
+                    <div class="info-label">Servings</div>
+                  </ion-col>
+                  <ion-col size="3" class="info-item">
+                    <ion-icon name="fitness-outline" color="primary"></ion-icon>
+                    <div class="info-value">{{ recipe.healthScore }}</div>
+                    <div class="info-label">Health</div>
+                  </ion-col>
+                  <ion-col size="3" class="info-item">
+                    <ion-icon name="flame-outline" color="primary"></ion-icon>
+                    <div class="info-value">{{ getCalories() }}</div>
+                    <div class="info-label">Calories</div>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card>
+
+          <!-- Diet Tags -->
+          <ion-card class="tags-card">
+            <ion-card-content>
+              <div class="tags-container">
+                @if (recipe.vegetarian) {
+                  <ion-chip color="success">
+                    <ion-icon name="leaf-outline"></ion-icon>
+                    <ion-label>Vegetarian</ion-label>
+                  </ion-chip>
+                }
+                @if (recipe.vegan) {
+                  <ion-chip color="success">
+                    <ion-icon name="nutrition-outline"></ion-icon>
+                    <ion-label>Vegan</ion-label>
+                  </ion-chip>
+                }
+                @if (recipe.glutenFree) {
+                  <ion-chip color="warning">
+                    <ion-icon name="ban-outline"></ion-icon>
+                    <ion-label>Gluten Free</ion-label>
+                  </ion-chip>
+                }
+                @if (recipe.dairyFree) {
+                  <ion-chip color="warning">
+                    <ion-icon name="water-outline"></ion-icon>
+                    <ion-label>Dairy Free</ion-label>
+                  </ion-chip>
+                }
+                @if (recipe.veryHealthy) {
+                  <ion-chip color="primary">
+                    <ion-icon name="heart-outline"></ion-icon>
+                    <ion-label>Very Healthy</ion-label>
+                  </ion-chip>
+                }
+                @if (recipe.cheap) {
+                  <ion-chip color="tertiary">
+                    <ion-icon name="cash-outline"></ion-icon>
+                    <ion-label>Budget Friendly</ion-label>
+                  </ion-chip>
+                }
+              </div>
+            </ion-card-content>
+          </ion-card>
+
+          <!-- Nutrition Card -->
+          @if (recipe.nutrition) {
+            <ion-card class="nutrition-card">
+              <ion-card-header>
+                <ion-card-title>
+                  <ion-icon name="analytics-outline"></ion-icon>
+                  Nutrition Facts
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col size="6" size-md="3">
+                      <div class="nutrition-item">
+                        <div class="nutrition-label">Protein</div>
+                        <div class="nutrition-value">{{ getProtein() }}g</div>
+                      </div>
+                    </ion-col>
+                    <ion-col size="6" size-md="3">
+                      <div class="nutrition-item">
+                        <div class="nutrition-label">Carbs</div>
+                        <div class="nutrition-value">{{ getCarbs() }}g</div>
+                      </div>
+                    </ion-col>
+                    <ion-col size="6" size-md="3">
+                      <div class="nutrition-item">
+                        <div class="nutrition-label">Fat</div>
+                        <div class="nutrition-value">{{ getFat() }}g</div>
+                      </div>
+                    </ion-col>
+                    <ion-col size="6" size-md="3">
+                      <div class="nutrition-item">
+                        <div class="nutrition-label">Calories</div>
+                        <div class="nutrition-value">{{ getCalories() }}</div>
+                      </div>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-card-content>
+            </ion-card>
+          }
+
+          <!-- Summary Card -->
+          @if (recipe.summary) {
+            <ion-card class="summary-card">
+              <ion-card-header>
+                <ion-card-title>
+                  <ion-icon name="information-circle-outline"></ion-icon>
+                  About This Recipe
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <p [innerHTML]="recipe.summary"></p>
+              </ion-card-content>
+            </ion-card>
+          }
+
+          <!-- Ingredients Card -->
+          @if (recipe.extendedIngredients && recipe.extendedIngredients.length > 0) {
+            <ion-card class="ingredients-card">
+              <ion-card-header>
+                <ion-card-title>
+                  <ion-icon name="basket-outline"></ion-icon>
+                  Ingredients
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-list lines="none">
+                  @for (ingredient of recipe.extendedIngredients; track ingredient.id) {
+                    <ion-item>
+                      <ion-icon name="checkmark-circle-outline" slot="start" color="success"></ion-icon>
+                      <ion-label>
+                        <h3>{{ ingredient.name }}</h3>
+                        <p>{{ ingredient.amount }} {{ ingredient.unit }}</p>
+                      </ion-label>
+                    </ion-item>
+                  }
+                </ion-list>
+              </ion-card-content>
+            </ion-card>
+          }
+
+          <!-- Instructions Card -->
+          @if (recipe.instructions) {
+            <ion-card class="instructions-card">
+              <ion-card-header>
+                <ion-card-title>
+                  <ion-icon name="clipboard-outline"></ion-icon>
+                  Instructions
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <div [innerHTML]="recipe.instructions"></div>
+              </ion-card-content>
+            </ion-card>
+          }
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  } @else {
+    <!-- Error State -->
+    <ion-grid class="error-container">
+      <ion-row class="ion-justify-content-center ion-align-items-center">
+        <ion-col size="12" class="ion-text-center">
+          <ion-icon name="alert-circle-outline" color="danger" style="font-size: 80px;"></ion-icon>
+          <h2>Recipe Not Found</h2>
+          <p>Unable to load recipe details. Please try again.</p>
+          <ion-button routerLink="/recepies" color="primary">
+            Go Back
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  }
+</ion-content>

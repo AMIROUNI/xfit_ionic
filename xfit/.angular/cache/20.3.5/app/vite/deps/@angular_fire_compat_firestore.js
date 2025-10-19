@@ -1,24 +1,4 @@
 import {
-  AngularFireAuth,
-  LANGUAGE_CODE,
-  PERSISTENCE,
-  SETTINGS,
-  TENANT_ID,
-  USE_DEVICE_LANGUAGE,
-  USE_EMULATOR,
-  ɵauthFactory
-} from "./chunk-HEVYDKRF.js";
-import "./chunk-TJDOEBJA.js";
-import {
-  FIREBASE_APP_NAME,
-  FIREBASE_OPTIONS,
-  ɵcacheInstance,
-  ɵfirebaseAppFactory
-} from "./chunk-663QGM3Y.js";
-import {
-  firebase
-} from "./chunk-W7TTOJCQ.js";
-import {
   AbstractUserDataWriter,
   Bytes,
   DatabaseId,
@@ -84,25 +64,45 @@ import {
   updateDoc,
   waitForPendingWrites,
   where
-} from "./chunk-UOHZSUIT.js";
+} from "./chunk-64FB3VI5.js";
+import {
+  AngularFireAuth,
+  LANGUAGE_CODE,
+  PERSISTENCE,
+  SETTINGS,
+  TENANT_ID,
+  USE_DEVICE_LANGUAGE,
+  USE_EMULATOR,
+  ɵauthFactory
+} from "./chunk-C3QQRGPD.js";
+import "./chunk-QOGLGSRD.js";
 import {
   AppCheckInstances
-} from "./chunk-VUJFHLT3.js";
-import "./chunk-3UKLLH3H.js";
-import "./chunk-QWRQXP5C.js";
+} from "./chunk-7WI2VFCQ.js";
+import "./chunk-FBH7K3HX.js";
+import "./chunk-SHAOYKYM.js";
 import {
   isPlatformServer
-} from "./chunk-B3YD4OP6.js";
-import "./chunk-W2WIUP6R.js";
+} from "./chunk-TSEEZIGG.js";
+import "./chunk-EPQ7ABNA.js";
+import {
+  FIREBASE_APP_NAME,
+  FIREBASE_OPTIONS,
+  ɵcacheInstance,
+  ɵfirebaseAppFactory
+} from "./chunk-XWWPR22F.js";
+import {
+  firebase
+} from "./chunk-SRCBF665.js";
 import {
   VERSION,
   pendingUntilEvent,
   ɵAngularFireSchedulers
-} from "./chunk-Q3BCPBC6.js";
+} from "./chunk-AGLRIUJI.js";
 import {
   Component,
   getModularInstance
-} from "./chunk-KUSH5E6A.js";
+} from "./chunk-J2VAM4YE.js";
 import {
   EnvironmentInjector,
   Inject,
@@ -128,8 +128,8 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-} from "./chunk-U4JGDI26.js";
-import "./chunk-BBC5QSU6.js";
+} from "./chunk-NFL7VRTJ.js";
+import "./chunk-TQENF7IN.js";
 import {
   __spreadValues
 } from "./chunk-4VWZEZJW.js";
