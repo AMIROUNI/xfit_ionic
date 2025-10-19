@@ -1,0 +1,73 @@
+<ion-header >
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/main', uid]">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Healthy Recipes</ion-title>
+  </ion-toolbar>
+  <!-- Tabs Bar Fixed at the Top -->
+  <ion-tab-bar slot="top" class="custom-tab-bar">
+    <ion-tab-button>
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Home</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button>
+      <ion-icon name="barbell" color="primary"></ion-icon>
+      <ion-label>Workouts</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button>
+      <ion-icon name="stats-chart"></ion-icon>
+      <ion-label [routerLink]="['/recepies']">recepies</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button>
+      <ion-icon name="person"></ion-icon>
+      <ion-label [routerLink]="['/profile', uid]">Profile</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-header>
+
+<!-- Main Content -->
+<ion-content [fullscreen]="true">
+
+  <!-- Logo Section -->
+  <ion-grid class="logo-container">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="auto">
+        <ion-img src="assets/image/logo.png" alt="App Logo" class="app-logo"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Recipes Section -->
+  <ion-grid class="programs-section">
+    <ion-row class="section-header">
+      <ion-col size="8">
+        <h2>Healthy Recipes</h2>
+      </ion-col>
+      <ion-col size="4" class="ion-text-end">
+        <ion-badge color="primary">{{ recipes.length }}</ion-badge>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="programs-grid">
+      @for(recipe of recipes; track recipe.id) {
+        <ion-col size="12" size-sm="6" size-md="4" size-lg="3">
+          <ion-card class="program-card" button (click)="viewRecipe(recipe.id)">
+            <div class="card-image-wrapper">
+              <ion-img [src]="recipe.image" [alt]="recipe.title"></ion-img>
+            </div>
+            <ion-card-header>
+              <ion-card-title>{{ recipe.title }}</ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      }
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
