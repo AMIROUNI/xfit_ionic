@@ -31,4 +31,15 @@ export const routes: Routes = [
     path: 'profile/:uid',
     loadComponent: () => import('./profile/profile.page').then( m => m.ProfilePage)
   },
-];
+  {
+    path: 'calorie-calculator',
+    loadComponent: () => import('./calorie-calculator/calorie-calculator.page').then( m => m.CalorieCalculatorPage)
+  },
+    {
+    path: 'recepies',
+    loadComponent: () => import('./recipies/recepies/recepies.page').then( m => m.RecepiesPage)
+  },
+  {
+  path: 'recipe-detail/:id',  // Change this to match your navigation
+  loadComponent: () => import('./recipies-details/recipies-details/recipies-details.page').then( m => m.RecipiesDetailsPage)
+},];

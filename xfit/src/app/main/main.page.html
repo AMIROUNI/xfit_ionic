@@ -10,14 +10,14 @@
       <ion-label>Home</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button>
-      <ion-icon name="barbell" color="primary"></ion-icon>
-      <ion-label>Workouts</ion-label>
+    <ion-tab-button (click)="navigateToCalorieCalculator()">
+      <ion-icon name="calculator" color="primary"></ion-icon>
+      <ion-label>Calorie</ion-label>
     </ion-tab-button>
 
     <ion-tab-button>
       <ion-icon name="stats-chart"></ion-icon>
-      <ion-label>Progress</ion-label>
+      <ion-label [routerLink]="['/recepies']">recepies</ion-label>
     </ion-tab-button>
 
     <ion-tab-button>

@@ -3,6 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  deepSeekApiKey: 'sk-47871a89aa0448c7a94476e408eb1480',
   apiUrl: 'http://localhost:8090/api/v1',
   apiMotivation: 'https://zenquotes.io/api/quotes/random',
   production: false,
