@@ -2,7 +2,10 @@
   <ion-toolbar>
     <ion-title>Login</ion-title>
   </ion-toolbar>
-</ion-header>
+  @if(isLoading){
+  <ion-progress-bar type="indeterminate" color="tertiary"></ion-progress-bar>
+  }
+  </ion-header>
 
 
 <ion-img src="assets/image/logo.png" alt="App Logo" class="app-logo"></ion-img>

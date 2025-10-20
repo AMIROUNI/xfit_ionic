@@ -47,7 +47,7 @@ export class CalorieCalculatorPage implements OnInit {
     this.uid = history.state?.uid || localStorage.getItem('uid') || '';
   }
 
-  calculateCalories() {
+  calculateCalories() { 
     if (this.calorieForm.invalid) {
       this.calorieForm.markAllAsTouched();
       return;

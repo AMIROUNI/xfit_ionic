@@ -1,7 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Fitness Programs</ion-title>
+
   </ion-toolbar>
+  @if(isLoadingUser && isLoadingMotiv && isLoadingProg){
+<ion-progress-bar type="indeterminate" color="tertiary" style="z-index:200;"></ion-progress-bar>
+}
 
   <!-- Tabs Bar Fixed at the Top -->
   <ion-tab-bar slot="top" class="custom-tab-bar">
@@ -16,8 +20,8 @@
     </ion-tab-button>
 
     <ion-tab-button>
-      <ion-icon name="stats-chart"></ion-icon>
-      <ion-label [routerLink]="['/recepies']">recepies</ion-label>
+      <ion-icon style="z-index=85858858" name="stats-chart"></ion-icon>
+      <ion-label [routerLink]="['/recepies', uid]">recepies</ion-label>
     </ion-tab-button>
 
     <ion-tab-button>

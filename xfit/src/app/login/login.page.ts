@@ -10,6 +10,7 @@ import {
   IonLabel,
   IonInput,
   IonButton,
+  IonProgressBar,
   IonText, IonImg } from '@ionic/angular/standalone';
 import { FormsModule } from '@angular/forms';
 
@@ -22,16 +23,20 @@ import { FormsModule } from '@angular/forms';
     IonInput,
     IonButton,
     IonText,
-    FormsModule, IonImg]
+    FormsModule, IonImg,IonProgressBar]
 })
+
+
 export class LoginPage {
   email: string = '';
   password: string = '';
+  isLoading:boolean=false;
 
   constructor(private fireService: Fireservice, private router: Router) {}
 
   //  Login user
   async login() {
+    this.isLoading=true;
     if (!this.email || !this.password) {
       alert('Please fill in both fields');
       return;
@@ -45,9 +50,10 @@ export class LoginPage {
       console.log('Login successful:', res);
       alert('Welcome back!');
       const uid = res.user.uid;
-
+      this.isLoading=false;
       this.router.navigate(['/main', uid]);
     } catch (error: any) {
+      this.isLoading=false;
       console.error(error);
       alert(error.message);
     }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonList, IonLabel, IonItem, IonCard, IonImg, IonCardContent, IonCardSubtitle, IonCardTitle, IonCardHeader, IonGrid, IonRow, IonCol, IonSkeletonText, IonButton, IonIcon, IonBadge, IonTabButton, IonTabs, IonTabBar, IonTab, IonSearchbar, IonRouterLink } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonList,IonProgressBar, IonLabel, IonItem, IonCard, IonImg, IonCardContent, IonCardSubtitle, IonCardTitle, IonCardHeader, IonGrid, IonRow, IonCol, IonSkeletonText, IonButton, IonIcon, IonBadge, IonTabButton, IonTabs, IonTabBar, IonTab, IonSearchbar, IonRouterLink } from '@ionic/angular/standalone';
 import { ProgramService } from '../services/program';
 import { Program } from '../models/Program.model';
 import { Motivation } from '../services/motivation';
@@ -13,7 +13,7 @@ import { Fireservice } from '../services/fireservice';
   templateUrl: './main.page.html',
   styleUrls: ['./main.page.scss'],
   standalone: true,
-  imports: [IonSearchbar, IonTabBar, IonTabButton, IonBadge, IonIcon, IonButton, IonSkeletonText, IonCol, IonRow, IonGrid, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonImg, IonCard, IonLabel, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonRouterLink, RouterLinkWithHref]
+  imports: [IonSearchbar, IonTabBar, IonTabButton, IonBadge, IonIcon, IonButton, IonSkeletonText, IonCol, IonRow, IonGrid, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonImg, IonCard, IonLabel, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonRouterLink, RouterLinkWithHref,IonProgressBar]
 })
 export class MainPage implements OnInit {
   programs: Program[] = [];
@@ -21,6 +21,10 @@ export class MainPage implements OnInit {
   motivationalQuote: any;
   uid: string = '';
   username: string = '';
+  isLoadingUser: boolean = false;
+  isLoadingMotiv: boolean = false;
+  isLoadingProg: boolean = false;
+
   constructor(private programService: ProgramService,
      private motivationService: Motivation,
     private route: ActivatedRoute,
@@ -38,22 +42,28 @@ export class MainPage implements OnInit {
   }
 
   private loadUserData() {
+    this.isLoadingUser = true;
     console.log('Loading user data for UID:', this.uid);
     this.fireservice.getUserData(this.uid).then((data: any) => {
+      this.isLoadingUser = false;
       console.log('User Data:', data);
       this.username = data.email.split('@')[0];
     }, (error) => {
+      this.isLoadingUser = false;
       console.error('Error fetching user data:', error);
     });
   }
 
   private loadPrograms() {
+    this.isLoadingProg = true;
     console.log('Loading programs...');
     this.programService.getAllPrograms().subscribe((data: Program[]) => {
+      this.isLoadingProg = false;
       this.programs = data;
       this.filteredPrograms = data;
       console.log('Programs loaded:', this.programs);
     }, (error) => {
+      this.isLoadingProg = false;
       console.error('Error loading programs:', error);
     });
 
@@ -61,7 +71,10 @@ export class MainPage implements OnInit {
 
 
 private getMotivation() {
+  this.isLoadingMotiv = true;
   this.motivationService.getRandomQuote().subscribe((res: any) => {
+    this.isLoadingMotiv = false;
+
     console.log('Raw response:', res);
 
     // Parse the contents string
@@ -76,6 +89,7 @@ private getMotivation() {
     }
     console.log('Motivational quote:', this.motivationalQuote);
   }, (error) => {
+    this.isLoadingMotiv = false;
     console.error('Error loading motivational quote:', error);
   });
 }

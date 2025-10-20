@@ -36,7 +36,7 @@ export const routes: Routes = [
     loadComponent: () => import('./calorie-calculator/calorie-calculator.page').then( m => m.CalorieCalculatorPage)
   },
     {
-    path: 'recepies',
+    path: 'recepies/:uid',
     loadComponent: () => import('./recipies/recepies/recepies.page').then( m => m.RecepiesPage)
   },
   {
