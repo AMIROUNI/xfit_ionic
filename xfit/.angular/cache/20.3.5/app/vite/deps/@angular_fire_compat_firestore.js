@@ -89,11 +89,11 @@ import {
   AppCheckInstances
 } from "./chunk-FTOTKJIW.js";
 import "./chunk-FBH7K3HX.js";
-import "./chunk-OFONLUHW.js";
 import {
   isPlatformServer
 } from "./chunk-V75CDQOQ.js";
 import "./chunk-EPQ7ABNA.js";
+import "./chunk-OFONLUHW.js";
 import {
   VERSION,
   pendingUntilEvent,

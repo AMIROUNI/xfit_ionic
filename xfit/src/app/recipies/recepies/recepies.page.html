@@ -1,9 +1,9 @@
 <ion-header >
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button [routerLink]="['/main', uid]">
+      <ion-back-button [defaultHref]="'/main/' + uid">
         <ion-icon name="arrow-back-outline"></ion-icon>
-      </ion-button>
+      </ion-back-button>
     </ion-buttons>
     <ion-title>Healthy Recipes</ion-title>
   </ion-toolbar>

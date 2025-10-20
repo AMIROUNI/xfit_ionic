@@ -17,7 +17,7 @@
   <!-- Program Header -->
   <div class="program-header">
     <div class="header-content">
-      
+
         <div class="stat-item">
           <ion-icon name="fitness-outline"></ion-icon>
           <span>{{ programDetails.length }} Exercises</span>
@@ -33,15 +33,15 @@
           <ion-icon name="calendar"></ion-icon>
           Day {{ pd.day }}
         </div>
-        
+
         <ion-card-header>
           <div class="exercise-number">{{ $index + 1 }}</div>
           <ion-card-title>{{ pd.exerciseName }}</ion-card-title>
         </ion-card-header>
-        
+
         <ion-card-content>
           <p class="description">{{ pd.description }}</p>
-          
+
           <div class="exercise-actions">
             <ion-button fill="outline" size="small">
               <ion-icon slot="start" name="play-circle-outline"></ion-icon>

@@ -125,12 +125,12 @@ import {
   AppCheckInstances
 } from "./chunk-FTOTKJIW.js";
 import "./chunk-FBH7K3HX.js";
+import "./chunk-V75CDQOQ.js";
+import "./chunk-EPQ7ABNA.js";
 import {
   FirebaseApp,
   FirebaseApps
 } from "./chunk-OFONLUHW.js";
-import "./chunk-V75CDQOQ.js";
-import "./chunk-EPQ7ABNA.js";
 import {
   VERSION,
   ɵAngularFireSchedulers,
